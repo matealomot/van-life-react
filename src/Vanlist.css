@@ -1,0 +1,135 @@
+.list--body {
+    margin: 0 26.91px 0 26.91px;
+    background-color: #FFF7ED;
+}
+
+h1 {
+    height: 34px;
+    flex-shrink: 0;
+    color: #161616;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 33.652px;
+    margin-bottom: 2rem;
+}
+
+.list--body nav {
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+.filters {
+    display: flex;
+    gap: 20px;
+    padding: 6px 26px 7px 26px;
+    margin-right: auto;
+    padding: 0;
+}
+.filter {
+    color: #4D4D4D;
+    text-align: right;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23.919px;
+    width: 104px;
+    height: 37px;
+    padding: 6px 26px 7px 26px;
+    text-align: center;
+    flex-shrink: 0;
+    border: 1px solid #e7c8a2;;
+    border-radius: 5px;
+    background: #FFEAD0;
+    box-shadow: 1px 1px 5px #AAAAAA;
+    cursor: pointer;
+}
+
+.no--filter {
+    color: #4D4D4D;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23.919px; /* 149.496% */
+    text-decoration-line: underline;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.van--list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.van {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 0.5rem;
+}
+
+.van a {
+    text-decoration: none;
+}
+
+.van--info {
+    width: 500px;
+}
+.van img {
+    width: 500px;
+    border-radius: 10px;
+    margin-bottom: 9.97px;
+    box-shadow: 1px 1px 5px #AAAAAA;
+}
+
+.van--info div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.van--info h3 {
+    color: #161616;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31.662px;
+}
+
+.van--info div p {
+    color: #161616;
+    text-align: right;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31.662px;
+}
+
+.type {
+    width: 6rem;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #E17654;
+    color: #FFEAD0;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31.662px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
