@@ -5,11 +5,11 @@ import './Vanlist.css';
 
 export default function VansList() {
 
-    const [vans, setVans] = useState(JSON.parse(localStorage.getItem('vans')) || []);
+    const [vans, setVans] = useState(JSON.parse(localStorage.getItem('vans')) || null);
     const [type, setType] = useState('');
 
     useEffect(() => {
-      if(vans.length === 0) {
+      if(!vans) {
         fetch("/api/vans")
         .then((response) => response.json())
         .then((data) => {
@@ -68,7 +68,7 @@ export default function VansList() {
                 <button className='no--filter' onClick={() => {filterType(setType, '')}}>Clear filters</button>
             </nav>
             <div className="van--list">
-                {vans.length > 0 ? vansList() : <h1 className='loading'>Loading...</h1>}
+                {vans ? vansList() : <h1 className='loading'>Loading...</h1>}
             </div>
         </div>
     );

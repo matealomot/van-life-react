@@ -1,0 +1,17 @@
+.host--layout {
+  display: flex;
+  padding: 36.001px 25.819px 34.623px 26px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 160px;
+}
+
+.host--layout a {
+  color: #4D4D4D;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.923px; /* 127.348% */
+  text-decoration: none;
+}

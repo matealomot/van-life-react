@@ -5,7 +5,7 @@ import './Van.css';
 
 export default function Van() {
 
-    const params = useParams(); // fetches whatever comes after the /van/(:id) part of the path; in my case it will be the id of the van I clicked on
+    const params = useParams(); // fetches whatever comes after the /van/ part of the path; in my case it will be the id of the van I clicked on
     // NOT hoisted to the top; needs to be declared before everything else that might need it
 
     const [van, setVan] = useState(JSON.parse(localStorage.getItem(`vanDetails${params.id}`)) || null);
@@ -19,7 +19,6 @@ export default function Van() {
                 setVan(JSON.parse(localStorage.getItem(`vanDetails${params.id}`)));
             })
             .catch(err => console.log(err));
-            console.log("running")
         }
     }, [params.id]); // since the params captures the id of every van I click on, I should use it as a dependency so that every time the id changes the useEffect runs and I get new data for the new respective id
 
