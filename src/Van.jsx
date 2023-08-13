@@ -22,6 +22,25 @@ export default function Van() {
         }
     }, [params.id]); // since the params captures the id of every van I click on, I should use it as a dependency so that every time the id changes the useEffect runs and I get new data for the new respective id
 
+    function handleRentClick() {
+        if (!van) {
+            console.error('Van data not available yet.');
+            return;
+        }
+        else {
+            fetch(`/api/vans/${params.id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    rented: true,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            .catch(err => console.log(err))
+        }
+    };
+
     return (
         <div>
             {
@@ -40,7 +59,7 @@ export default function Van() {
                         <h2>{van.vans.name}</h2>
                         <p className='price'><span>${van.vans.price}</span>/day</p>
                         <p className='description'>{van.vans.description}</p>
-                        <button>Rent this van</button>
+                        <button onClick={handleRentClick}>Rent this van</button>
                     </div>
                 </div> 
                 : 

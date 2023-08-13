@@ -7,7 +7,12 @@ import Van from './Van.jsx';
 import HostLayout from './HostLayout.jsx';
 import Dashboard from './Dashboard.jsx';
 import Income from './Income.jsx';
+import ListedVans from './ListedVans.jsx';
 import Reviews from './Reviews.jsx';
+import Listing from './Listing.jsx';
+import Details from './Details.jsx';
+import Pricing from './Pricing.jsx';
+import Photos from './Photos.jsx';
 import './App.css';
 import './server.js';
 
@@ -26,6 +31,14 @@ function App() {
           <Route path='host' element={<HostLayout />}> {/*This is the parent route*/}
             <Route index element={<Dashboard />}/>
             <Route path='income' element={<Income />}/> {/*This is the child route. Child routes are always relative to the parent so we don't need "/"*/}
+            <Route path='listed' element={<ListedVans />}/>
+
+            <Route path='listed/:id' element={<Listing />}>
+                <Route index element={<Details />}/>
+                <Route path='pricing' element={<Pricing />}/>
+                <Route path='photos' element={<Photos />}/>
+            </Route>
+            
             <Route path='reviews' element={<Reviews />}/>
           </Route>
         </Route>

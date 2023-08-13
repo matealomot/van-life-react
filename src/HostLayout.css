@@ -15,3 +15,9 @@
   line-height: 22.923px; /* 127.348% */
   text-decoration: none;
 }
+
+.activeStyle {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #161616;
+}
