@@ -1,0 +1,14 @@
+.listing--album {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.listing--album img {
+  width: 200px;
+  max-width: 200px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #AAAAAA;
+}

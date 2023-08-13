@@ -1,0 +1,87 @@
+.listing--page {
+  margin-inline: 26px;
+  margin-bottom: 45px;
+}
+
+.listing--overview {
+  margin-top: 37px;
+  padding: 23px 27.5px 26px 25px;
+  display: flex;
+  flex-basis: 2;
+}
+
+.listing-basic {
+  display: flex;
+  gap: 19px;
+  margin-bottom: 26.92px;
+  flex: 50%;
+}
+
+.listing-basic img {
+  width: 31.25rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #AAAAAA;
+}
+
+.listing {
+  margin-bottom: 18.8px;
+}
+
+.listing-basic h1 {
+  color: #161616;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.listing-basic span {
+  color: #161616;
+  font-family: Inter;
+  font-size: 29.544px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 35.954px;
+}
+
+.listing-basic .listing--pricing {
+  color: #161616;
+  font-family: Inter;
+  font-size: 20.286px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 35.954px;
+}
+
+.text--info {
+  margin-top: 24px;
+}
+
+.listing--nav {
+  margin-bottom: 27px;
+  display: flex;
+  gap: 21.53px;
+}
+
+.listing--nav a {
+  color: #4D4D4D;
+  font-family: Inter;
+  font-size: 20.149px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20.566px;
+  text-decoration: none;
+}
+
+.navigation--menu {
+  flex: 50%;
+}
+
+.link--back {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.link--back a {
+  color: black;
+}

@@ -1,4 +1,5 @@
 import {useOutletContext} from 'react-router-dom';
+import './Photos.css';
 
 export default function Photos() {
 
@@ -6,8 +7,12 @@ export default function Photos() {
 
 
   return (
-    <>
-      {photos ? <img src={photos.imageUrl} alt="van image"></img> : <h2 className='loading'>Loading...</h2>}
-    </>
+    <div className='listing--album'>
+      <div className='image'>{photos ? <img src={photos.imageUrl} alt="van image"></img> : <h2 className='loading'>Loading...</h2>}</div>
+      <div className='image'>{photos ? <img src={photos.imageUrl} alt="van image"></img> : <h2 className='loading'>Loading...</h2>}</div>
+      <div className='image'>{photos ? <img src={photos.imageUrl} alt="van image"></img> : <h2 className='loading'>Loading...</h2>}</div>
+      <div className='image'>{photos ? <img src={photos.imageUrl} alt="van image"></img> : <h2 className='loading'>Loading...</h2>}</div>
+      <div className='image'>{photos ? <img src={photos.imageUrl} alt="van image"></img> : <h2 className='loading'>Loading...</h2>}</div>
+    </div>
   );
 };

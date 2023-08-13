@@ -1,3 +1,23 @@
 .details {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+p {
+  color: #161616;
+  font-family: Inter;
+  font-size: 20.355px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30.46px;
+}
+
+span {
+  color: #161616;
+  font-family: Inter;
+  font-size: 20.355px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.46px;
 }
