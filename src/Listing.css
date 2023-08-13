@@ -76,12 +76,16 @@
   flex: 50%;
 }
 
-.link--back {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.link--back a {
-  color: black;
+.back--link a {
+  margin-right: auto;
+  margin-left: 0.5rem;
+  padding: 0;
+  margin-bottom: 40px;
+  color: #201F1D;
+  font-family: Inter;
+  font-size: 15.946px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.923px;
+  text-decoration-line: underline;
 }
