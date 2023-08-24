@@ -45,6 +45,37 @@ h1 {
     background: #FFEAD0;
     box-shadow: 1px 1px 5px #AAAAAA;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.simple:hover {
+    background-color: #E17654;
+    color: #ffffff;
+}
+
+.luxury:hover {
+    background-color: #161616;
+    color: #ffffff;
+}
+
+.rugged:hover {
+    background-color: #115E59;
+    color: #ffffff;
+}
+
+.simple.selected {
+    background-color: #E17654;
+    color: #ffffff;
+}
+
+.luxury.selected {
+    background-color: #161616;
+    color: #ffffff;
+}
+
+.rugged.selected {
+    background-color: #115E59;
+    color: #ffffff;
 }
 
 .no--filter {

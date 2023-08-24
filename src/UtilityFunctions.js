@@ -22,6 +22,7 @@ function filterType(callback, type) {
     callback(type)
 }; 
 
+// capitalizes the first string character
 function capitalizeString(string) {
     return (string[0].toUpperCase() + string.slice(1));
 }

@@ -42,7 +42,7 @@ export default function ListedVans() {
       <h1 className='listings--title'>Your listed vans</h1>
 
       <div className="rented--van--list">
-        {listedVans.length > 0 ? vans() : <h2>Loading...</h2>}
+        {listedVans.length > 0 ? vans() : <h2 className='loading'>Loading...</h2>}
       </div>
     </>
   );
