@@ -1,20 +1,21 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from './Layout.jsx';
-import Home from './Home.jsx';
-import About from './About.jsx';
-import Vans from './Vanslist.jsx';
-import Van from './Van.jsx';
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
+import Vans from './pages/vans/Vanslist.jsx';
+import Van from './pages/vans/Van.jsx';
 import HostLayout from './HostLayout.jsx';
-import Dashboard from './Dashboard.jsx';
-import Income from './Income.jsx';
-import ListedVans from './ListedVans.jsx';
-import Reviews from './Reviews.jsx';
-import Listing from './Listing.jsx';
-import Details from './Details.jsx';
-import Pricing from './Pricing.jsx';
-import Photos from './Photos.jsx';
-import './App.css';
-import './server.js';
+import Dashboard from './pages/host/Dashboard.jsx';
+import Income from './pages/host/Income.jsx';
+import ListedVans from './pages/host/ListedVans.jsx';
+import Reviews from './pages/host/Reviews.jsx';
+import Listing from './pages/host/Listing.jsx';
+import Details from './pages/host/Details.jsx';
+import Pricing from './pages/host/Pricing.jsx';
+import Photos from './pages/host/Photos.jsx';
+import NotFound from './not_found/PageNotFound.jsx'
+import './css/App.css';
+import './utilities/server.js';
 
 
 function App() {
@@ -22,15 +23,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}> {/*The parent route of the nested routes that contains just the portion of the UI that will be shared.*/}
-          <Route index element={<Home />}/> {/*Index routes render in their parent route's outlet at the parent route's path, like a default route component*/}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}/>
           <Route path='about' element={<About />}/>
           <Route path='vans' element={<Vans />}/>
           <Route path='vans/:id' element={<Van />}/>
 
-          <Route path='host' element={<HostLayout />}> {/*This is the parent route*/}
+          <Route path='host' element={<HostLayout />}>
             <Route index element={<Dashboard />}/>
-            <Route path='income' element={<Income />}/> {/*This is the child route. Child routes are always relative to the parent so we don't need "/"*/}
+            <Route path='income' element={<Income />}/>
             <Route path='listed' element={<ListedVans />}/>
 
             <Route path='listed/:id' element={<Listing />}>
@@ -41,15 +42,11 @@ function App() {
             
             <Route path='reviews' element={<Reviews />}/>
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Route>
-      {/* Whatever is written in place of :id in the path will read as part of the path; :id is just a placeholder, like a parameter or variable name;            ":" indicates a variable parameter */}
       </Routes>
     </BrowserRouter>
   );
 };
 
 export default App;
-
-// If you don't want a route to have shared UI from the Layout route, just move it out of the Layout route!
-
-// Nesting routes is useful and should be done primairly in cases parts of UI are supposed to be shared between child componenets, otherwise it's not necessary

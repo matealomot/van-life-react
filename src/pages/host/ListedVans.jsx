@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {capitalizeString, checkType} from './UtilityFunctions'
-import './ListedVans.css';
+import {capitalizeString, checkType} from '../../utilities/UtilityFunctions';
+import '../../css/ListedVans.css';
 
 export default function ListedVans() {
 

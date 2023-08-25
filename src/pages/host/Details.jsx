@@ -1,12 +1,10 @@
 import {useOutletContext} from 'react-router-dom';
-import { capitalizeString } from './UtilityFunctions';
-import './Details.css';
+import { capitalizeString } from '../../utilities/UtilityFunctions';
+import '../../css/Details.css';
 
 export default function Details() {
 
   const [parent, setParent] = useOutletContext();
-
-  console.log(parent)
 
   return (
     <>

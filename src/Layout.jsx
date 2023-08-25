@@ -7,7 +7,7 @@ export default function Layout() {
     <>
       <Header />
       <main>
-        <Outlet />  {/*This is the equivalent to props.children; It's a placeholder for any children components that will be placed/rendered between the opening and closing tags of the Layout component when the url paths match*/}
+        <Outlet />
       </main>
       <Footer />
     </>

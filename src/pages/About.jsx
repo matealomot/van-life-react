@@ -1,5 +1,4 @@
-import './App.css';
-import bgImg from "./assets/about-hero.png";
+import '../css/App.css';
 import { Link } from 'react-router-dom';
 
 export default function About() {

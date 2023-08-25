@@ -1,5 +1,5 @@
 import {useOutletContext} from 'react-router-dom';
-import './Photos.css';
+import '../../css/Photos.css';
 
 export default function Photos() {
 

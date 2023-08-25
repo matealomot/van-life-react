@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom'; // NavLink can accept a function or variable instead of string in the className attribute
+import {NavLink} from 'react-router-dom';
 
 export default function Header() {
   
@@ -13,5 +13,3 @@ export default function Header() {
     </header>
   );
 };
-
-// {isActive} is a boolean property from the destructured object that NavLink introduces in the background; we can also instead use obj.isActive

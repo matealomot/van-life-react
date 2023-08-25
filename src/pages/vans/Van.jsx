@@ -1,20 +1,17 @@
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {checkType, capitalizeString} from './UtilityFunctions';
-import './Van.css';
+import {checkType, capitalizeString} from '../../utilities/UtilityFunctions';
+import '../../css/Van.css';
 
 export default function Van() {
 
-    const params = useParams(); // fetches whatever comes after the /van/ part of the path; in my case it will be the id of the van I clicked on
-    // NOT hoisted to the top; needs to be declared before everything else that might need it
+    const params = useParams();
 
-    const location = useLocation(); // similar to useParams; provides an object with useful info like current path, search, and state which has whatever we passed it (the state is added to the original link that sends us to the current page)
+    const location = useLocation();
 
     const locationState = location.state.search ? location.state.search : null;
-    // const locationState = location.state?.search || null; - "Optional Chaining" new JS feature; it checks if the location.state is a thing then check for .search property and assign its value; otherwise assign null as value
 
     const vanType = location.state.type ? location.state.type : null;
-    // const vanType = locationState ? locationState.substring(4 + 1) : null; //assings the value of the string after "="
     
     const [van, setVan] = useState(JSON.parse(localStorage.getItem(`vanDetails${params.id}`)) || null);
 
@@ -28,7 +25,7 @@ export default function Van() {
             })
             .catch(err => console.log(err));
         }
-    }, [params.id]); // since the params captures the id of every van I click on, I should use it as a dependency so that every time the id changes the useEffect runs and I get new data for the new respective id
+    }, [params.id]);
 
     function handleRentClick() {
         if (!van) {
