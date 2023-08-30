@@ -129,7 +129,7 @@ header a:hover {
     font-weight: 700;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform .1s ease-in-out;
+    transition: transform .3s ease-in-out;
 }
 
 .link-to-vans {
@@ -139,7 +139,7 @@ header a:hover {
 }
 
 .home-container a:hover {
-    transform: translate(1px, 1px);
+    transform: scale(1.2);
 }
 
 

@@ -97,4 +97,10 @@
     line-height: 31.662px;
     cursor: pointer;
     box-shadow: 1px 1px 5px #AAAAAA;
+    transition: transform .5s ease-in-out;
+}
+
+
+.van--details button:hover {
+    transform: scale(1.1);
 }

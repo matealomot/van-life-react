@@ -1,43 +1,39 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink, Link, useSearchParams } from 'react-router-dom';
-import {checkType, filterType, capitalizeString} from '../../utilities/UtilityFunctions';
+import { NavLink, Link, useSearchParams, useLoaderData } from 'react-router-dom';
+import {checkType, capitalizeString, getVans} from '../../utilities/UtilityFunctions';
 import '../../css/Vanlist.css';
 
-export default function VansList() {
+export function loader() {
+    return getVans()
+};
 
+export default function VansList() {
+    const data = useLoaderData();
     const [searchParams, setSearchParams] = useSearchParams();
     const filterVans = searchParams.get('type');
+    const filterData = filterVans ? data.filter(van => van.type.toLowerCase() === filterVans) : data;
 
-    const [vans, setVans] = useState(JSON.parse(localStorage.getItem('vans')) || null);
-    
-    useEffect(() => {
-      if(!vans) {
-          fetch("/api/vans")
-          .then((response) => response.json())
-          .then((data) => {
-              localStorage.setItem('vans', JSON.stringify(data.vans));
-              setVans(JSON.parse(localStorage.getItem('vans')));    
-            })
-            .catch((error) => console.error("Error fetching data:", error));
-        } 
-    }, []);
- 
-    const filter = filterVans ? vans.filter(van => van.type.toLowerCase() === filterVans) : vans;
-       
-    const filteredVans = filter.map((van, index) => {
-        return  <div key={index} className='van'>
-                    <NavLink  to={`${van.id}`} state={{search: searchParams.toString(), type: filterVans}}> 
-                        <img src={van.imageUrl} alt={van.name}></img>
-                        <div className='van--info'>
-                            <div>
-                                <h3>{van.name}</h3>
-                                <p>${van.price}/day</p>
-                            </div>
-                            <p className='type' style={checkType(van.type)}>{capitalizeString(van.type)}</p>
+    const filteredVans = filterData ? 
+    filterData.length > 0 ? 
+        filterData.map((van, index) => (
+            <div key={index} className='van'>
+                <NavLink to={`${van.id > filterData.length ? filterData.length : van.id}`} state={{ search: searchParams.toString(), type: filterVans }}>
+                    <img src={van.imageUrl} alt={van.name} />
+                    <div className='van--info'>
+                        <div>
+                            <h3>{van.name}</h3>
+                            <p>${van.price}/day</p>
                         </div>
-                    </NavLink>
-                </div>
-    });
+                        <p className='type' style={checkType(van.type)}>
+                            {capitalizeString(van.type)}
+                        </p>
+                    </div>
+                </NavLink>
+            </div>
+        ))
+        : 
+        <h1>No data available</h1>
+    : <h1>Something went wrong. Try again.</h1>;
+
 
     function handleFilterChange(key, value) {
         setSearchParams(prevParams => {
@@ -68,7 +64,7 @@ export default function VansList() {
                 {filterVans && <button className='no--filter' onClick={() => handleFilterChange("type", null)}>Clear filters</button>}
             </nav>
             <div className="van--list">
-                {vans ? filteredVans : <h1 className='loading'>Loading...</h1>}
+                {filteredVans}
             </div>
         </div>
     );

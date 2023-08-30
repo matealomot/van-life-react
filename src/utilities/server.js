@@ -19,7 +19,8 @@ createServer({
         this.namespace = "api"
 
         this.get("/vans", (schema, request) => {
-            return schema.vans.all()
+            // return schema.vans.all()
+            throw new Error("Request failed with status: " + response.status);
         })
         
         this.get("/vans/:id", (schema, request) => {

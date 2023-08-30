@@ -1,23 +1,30 @@
 .rented--van--list {
   margin-bottom: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .listed-vans {
-  width: 45%;
-  margin-inline: 26px;
-  margin-bottom: 15px;
-  padding: 18.08px 24.12px 18.08px 24.12px;
+  flex-basis: 40%;
+  min-width: 35rem;
+  margin-bottom: 2rem;
+  margin-inline: 2rem;
   display: flex;
-  align-items: start;
   text-decoration: none;
-  gap: 17px;
+  gap: 1.5rem;
+  /* border: 1px solid red; */
 }
 
 .listed-vans img {
-  min-width: 200px;
-  max-width: 400px;
+  max-width: 25rem;
   border-radius: 5px;
   box-shadow: 1px 1px 5px #AAAAAA;
+  transition: transform .3s ease-in-out;
+}
+
+.listed-vans img:hover {
+  transform: scale(1.1);
 }
 
 .listed-vans .rented--van--info {

@@ -15,7 +15,7 @@ export default function ListedVans() {
         setListedVans(listedVans.length > 0 ? listedVans : "You have no listed vans");
       })
       .catch(err => console.log(err));
-  }, [])
+  }, []);
 
   const vans = () => {
     if(listedVans !== "You have no listed vans") {
