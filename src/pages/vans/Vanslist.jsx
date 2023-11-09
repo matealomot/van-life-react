@@ -10,6 +10,7 @@ export default function VansList() {
     const data = useLoaderData();
     const [searchParams, setSearchParams] = useSearchParams();
     const filterVans = searchParams.get('type');
+
     const filterData = filterVans ? data.filter(van => van.type.toLowerCase() === filterVans) : data;
 
     const filteredVans = filterData ? 
@@ -32,7 +33,7 @@ export default function VansList() {
         ))
         : 
         <h1>No data available</h1>
-    : <h1>Something went wrong. Try again.</h1>;
+    : <h1>Something went wrong</h1>;
 
 
     function handleFilterChange(key, value) {

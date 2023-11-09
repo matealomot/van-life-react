@@ -1,3 +1,5 @@
+import { redirect } from './addOnUtilities';
+
 // checks the type so that the correct color is assigned to the type badge
 function checkType(type) {
     let buttonColor = {
@@ -47,5 +49,56 @@ async function getVans() {
     };
 };
 
+async function getListedVans() {
+    const response = await fetch("/api/vans");
+    if(!response.ok) {
+        throw new Error("Something went wrong")
+    };
+    const data = await response.json();
+    const listings = data.vans.filter(van => van.rented === true);
+    return listings;
+};
 
-export {checkType, filterType, capitalizeString, getVans};
+async function getListings(id) {
+    if(!JSON.parse(localStorage.getItem(`listedVans${id}`))) {
+        const url = id ? `/api/vans/${id}` : "/api/vans";
+        const response = await fetch(url);
+        if(!response.ok) {
+            throw new Error("Something went wrong")
+        };
+        const data = await response.json();
+        localStorage.setItem(`listedVans${id}`, JSON.stringify(data.vans));
+        return data.vans;
+    }
+    else {
+        return JSON.parse(localStorage.getItem(`listedVans${id}`));
+    }
+};
+
+async function requireAuth() { 
+    const isLoggedIn = localStorage.getItem('loggedin'); 
+    if (!isLoggedIn) { 
+        throw redirect("/login?message=You must log in first");     
+    }
+    return null
+};
+
+// mock function that lets simulate logging into the app and checking the authentication
+async function loginUser(creds) {
+    const res = await fetch("/api/login",
+        { method: "post", body: JSON.stringify(creds) }
+    )
+    const data = await res.json()
+
+    if (!res.ok) {
+        throw {
+            message: data.message,
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+
+    return data
+};
+
+export {checkType, filterType, capitalizeString, getVans, getListedVans, getListings, requireAuth, loginUser};

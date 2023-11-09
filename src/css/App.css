@@ -53,6 +53,16 @@ header a:hover {
     text-decoration: underline;
 }
 
+header .login-icon {
+    height: 18px;
+    width: 18px;
+}
+
+header .login-link {
+    display: inline-flex;
+    align-items: center;
+}
+
 .activeStyle {
     font-weight: bold;
     text-decoration: underline;
@@ -74,6 +84,14 @@ header a:hover {
 
 .link-button:hover {
     transform: translate(1px, 1px);
+}
+
+.log-out {
+    font-weight: 700;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #4D4D4D;
+    border-radius: 50px;
 }
 
 /*** HOME PAGE ***/
