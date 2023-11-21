@@ -1,9 +1,7 @@
-import { useLoaderData, Form, useActionData } from "react-router-dom";
-import { useState } from "react";
+import { useLoaderData, Form, useActionData, useNavigation } from "react-router-dom";
 import { loginUser } from "../utilities/UtilityFunctions";
 import {redirect} from '../utilities/addOnUtilities'
 import '../css/Login.css';
-
 
 export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
@@ -31,10 +29,9 @@ export async function action({request}) {
 };
 
 export default function Login() {
-    const [status, setStatus] = useState('idle');
     const message = useLoaderData();
     const error = useActionData();
-
+    const naviagtion = useNavigation();
 
     return (
         <div className="login-container">
@@ -53,10 +50,10 @@ export default function Login() {
                     placeholder="Password"
                 />
                 <button 
-                    disabled={status === 'submitting'}
-                    className={status === 'submitting' ? 'disabled' : ''}
+                    disabled={naviagtion.state === 'submitting'}
+                    className={naviagtion.state === 'submitting' ? 'disabled' : ''}
                 >
-                    {status === 'submitting' ? 'Logging in...' : 'Log in'}
+                    {naviagtion.state === 'submitting' ? 'Logging in...' : 'Log in'}
                 </button>
             </Form>
         </div>
