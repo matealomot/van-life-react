@@ -2,8 +2,8 @@ import {Link, useLoaderData} from 'react-router-dom';
 import {capitalizeString, checkType, getListedVans, requireAuth} from '../../utilities/UtilityFunctions';
 import '../../css/ListedVans.css';
 
-export async function loader() {
-  await requireAuth()
+export async function loader({request}) {
+  await requireAuth(request)
   return getListedVans()
 };
 

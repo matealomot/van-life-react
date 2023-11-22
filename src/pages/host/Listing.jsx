@@ -1,9 +1,9 @@
-import {NavLink, useParams, Outlet, useLoaderData} from 'react-router-dom';
+import {NavLink, Outlet, useLoaderData} from 'react-router-dom';
 import { checkType, capitalizeString, getListings, requireAuth } from '../../utilities/UtilityFunctions';
 import '../../css/Listing.css';
 
-export async function loader({ params }) {
-  await requireAuth()
+export async function loader({ params, request }) {
+  await requireAuth(request)
   return getListings(params.id);
 }
 
