@@ -27,9 +27,9 @@ export default function VansList() {
 			<h1>Explore your van options</h1>
 			<Await resolve={data.vans}>
 				{vans => {
-
+	
 					const filterData = filterVans ? vans.filter(van => van.type.toLowerCase() === filterVans) : vans;
-
+	
 					const filteredVans = filterData ? 
 					filterData.length > 0 ? 
 						filterData.map((van, index) => (
@@ -51,7 +51,7 @@ export default function VansList() {
 						: 
 						<h1>No data available</h1>
 					: <h1>Something went wrong</h1>;
-
+	
 					return (
 						<>
 						<nav>
